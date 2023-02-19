@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,600&display=swap');
+
+:root {
+    --base: #fa9e4d;
+    --bridge: #faaf3e;
+    --accent: #ffd769;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/*
+
+[ ===== Efecto para textos ===== ]
+
+*/
+
+
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+.colortext{
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+        25deg,
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--bridge),
+        var(--accent),
+        var(--bridge),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base),
+        var(--base)
+    );
+    background-size: 200%;
+    font-weight: bolder;
+    text-shadow: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+
+/*
+
+[ ===== Header ===== ]
+
+*/
+
+
+header{
+    position: fixed;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: 700ms;
+    padding: 30px 20px;
+    z-index: 10;
+}
+
+
+.abajo{
+    background: #18122B;
+    padding: 25px 20px;
+}
+
+.header-buttons nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-buttons ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.header-buttons ul li{
+    list-style: none;
+}
+
+.header-buttons ul li a{
+    position: relative;
+    margin: 0 30px;
+    text-decoration: none;
+    transition: 300ms;
+    color: white;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.header-buttons ul li a:hover,
+.logo:hover {
+    color: #ffd769;
+}
+
+.toggle_btn {
+    color: white;
+    margin: -5px 30px;
+    font-size: 2.3rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 90px;
+    width: 300px;
+    height: 0px;
+    transition: height 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(68, 60, 104, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+
+.dropdown-menu.open {
+    height: 240px;
+}
+
+
+.dropdown-menu ul li {
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.7rem;
+    transition: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.dropdown-menu ul li:hover{
+    background-color: rgba(88, 80, 124, 0.4);
+}
+
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    transition: 300ms;
+    margin: 0 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    box-shadow: 0 2px white;
+}
+
+.dropdown-menu ul li a:hover{
+    color: #ffd769;
+    box-shadow: 0 2px #ffd769;
+}
+
+
+.logo{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+    transition: 300ms;
+}
+
+
+/*
+
+[ ===== Main ===== ]
+
+*/
+
+
+.front{
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    background: url(imgs/raccoon.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+.content div {
+    overflow-x: hidden;
+    color: white;
+    display: grid;
+    place-items: center;
+    text-shadow: 2px 2px 5px black;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 400%;
+    transition: 1.5s;
+    cursor: default;
+}
+
+
+div .colortext{
+    overflow-x: hidden;
+    font-family: helvetica;
+    font-weight: bolder;
+}
+
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+
+.triangleNegative {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 7vh;
+    translate: 0 -98%;
+}
+
+
+/*
+
+[ ===== Efecto scroll in ===== ]
+
+*/
+
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate(-100%);
+    transition: all 500ms ease;
+}
+
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0%);
+}
+
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+
+/*
+
+[ ===== Sección 1 ===== ]
+
+*/
+
+
+#about {
+    position: relative;
+    background: url(imgs/svg_backgrounds/wave-haikei.svg);
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    place-content: center;
+}
+
+section h2 {
+    overflow-x: hidden;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.feature {
+    overflow-x: hidden;
+    background-color: #393053;
+    border-radius: 10%;
+    padding: 1rem;
+    margin: 0.7rem 0.7rem;
+    display: grid;
+    transition: all 500ms ease;
+    max-width: 20%;
+    max-height: 300px;
+    justify-content: center;
+    place-content: center;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.feature:hover{
+    background-color: #635985;
+}
+
+.feature img{
+    overflow-x: hidden;
+    filter: brightness(0) invert(1);
+    justify-self: center;
+    padding-top: 10px;
+    max-width: 150px;
+    height: 150px;
+}
+
+.feature:nth-child(2){
+    transition-delay: 200ms;
+}
+
+.feature:nth-child(3){
+    transition-delay: 400ms;
+}
+
+.feature:nth-child(4){
+    transition-delay: 600ms;
+}
+
+
+/*
+
+[ ===== Sección 2 ===== ]
+
+*/
+
+
+#sliders{
+    background-color: #443C68;
+    position: relative;
+    background: url(imgs/svg_backgrounds/stacked-steps-haikei.svg);
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/*
+
+[ ===== Footer loco ===== ]
+
+*/
+
+
+.footer {
+    box-sizing: border-box;
+    background-color: #18122B;
+    padding: 30px 0;
+}
+
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+
+.footer-col.last{
+    flex-basis: 100%;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+    box-shadow: 0 5px #635985;
+    margin-bottom: 25px;
+}
+
+
+.footer-col ul{
+    list-style: none;
+}
+
+
+.footer-col ul li{
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #635985;
+    text-decoration: none;
+    font-weight: 400;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: white;
+    padding-left: 10px;
+}
+
+.footer-col .social-links {
+    text-align: center;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background-color: #393053;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 50%;
+    font-size: 1.3em;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+    background-color: white;
+    box-shadow: 4px 7px 0 rgb(19, 14, 36);
+    color:#18122B;
+}
+
+.credits a{
+    color: #635985;
+    text-decoration: none;
+    cursor: default;
+}
+
+
+/*
+
+[ ===== Media querys ===== ]
+
+*/
+
+
+@media(max-width: 992px){
+    .header-buttons {
+        display: none;
+    }
+    .toggle_btn {
+        display: block;
+    }
+
+    .feature {
+        max-width: 40%;
+    }
+}
+
+
+@media(max-width: 767px){
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px){
+    .footer-col {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        left: 0;
+        width: unset;
+    }
+
+    .feature {
+        max-width: unset;
+        justify-self: center;
+    }
+}
+
+@media(max-width: 380px){
+    * {
+        font-size: 90%;
+    }
+    
+    .feature,
+    #about h2,
+    .dropdown-menu ul li a {
+        font-size: 1.3rem;
+    }
+
+    .footer-col .social-links a {
+        font-size: 1.6rem;
+    }
+
+    .credits a{
+        font-size: 1rem;
+    }
+}
