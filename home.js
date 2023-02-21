@@ -86,6 +86,8 @@ btns.forEach((btn, i) => {
 
 /* Auto nav */
 
+/* M e s s y   a s   s h i t */
+
 var repeat = function(activeClass) {
     var repeater = () => {
         setTimeout(function () {
