@@ -60,6 +60,7 @@ toggleBtn.onclick = function () {
 
 const slides = document.querySelectorAll('.slide');
 const btns = document.querySelectorAll('.btn');
+let hasClicked = false;
 let currentSlide = 0;
 
 /* Manual nav */
@@ -80,6 +81,7 @@ let manualNav = () => {
 btns.forEach((btn, i) => {
     btn.addEventListener('click', () => {
         currentSlide = i;
+        hasClicked = true;
         manualNav();
     });
 });
@@ -91,24 +93,28 @@ btns.forEach((btn, i) => {
 var repeat = function(activeClass) {
     var repeater = () => {
         setTimeout(function () {
-            
-            if (slides.length == currentSlide + 1) {
-                slides.forEach((slide) => {
-                    slide.classList.remove('active');
+            if (hasClicked) {
+                hasClicked = false;
+            } else {
+
+                if (slides.length == currentSlide + 1) {
+                    slides.forEach((slide) => {
+                        slide.classList.remove('active');
+                    });
+                    currentSlide = 0;
+                }
+                
+                btns.forEach((btn) => {
+                    btn.classList.remove('active');
                 });
-                currentSlide = 0;
-            }
-            
-            btns.forEach((btn) => {
-                btn.classList.remove('active');
-            });
 
-            slides[currentSlide].classList.add('active');
-            btns[currentSlide].classList.add('active');
-            currentSlide++;
+                slides[currentSlide].classList.add('active');
+                btns[currentSlide].classList.add('active');
+                currentSlide++;
 
-            if (currentSlide >= slides.length) {
-                return;
+                if (currentSlide >= slides.length) {
+                    return;
+                }
             }
             repeater();
         }, 10000);
